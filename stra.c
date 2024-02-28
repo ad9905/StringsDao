@@ -38,7 +38,7 @@ size_t Str_concat(char dest[], const char pcSrc[])
     }
     dest[destLength + i] = '\0';
     return destLength + i;
-    // Return the length of the concatenated string
+    /* Return the length of the concatenated string */
 }
 
 size_t Str_compare(const char str1[], const char str2[])
@@ -49,11 +49,11 @@ size_t Str_compare(const char str1[], const char str2[])
     {
         if (str1[i] == '\0')
             return 0;
-        // return 0 means strings are equal
+        /* return 0 means strings are equal */
         i++;
     }
     return i;
-    // i is index where the strings differ
+    /* i is index where the strings differ */
 }
 
 size_t Str_search(const char haystack[], const char needle[])
@@ -65,13 +65,13 @@ size_t Str_search(const char haystack[], const char needle[])
     haystack_len = Str_getLength(haystack);
     needle_len = Str_getLength(needle);
 
-    // Ensures needle is shorter than haystack
+    /* Ensures needle is shorter than haystack */
     if (needle_len > haystack_len)
     {
         return -1;
     }
 
-    // Loops in order to find the needle in the haystack
+    /* Loops in order to find the needle in the haystack */
     for (i = 0; i <= haystack_len - needle_len; i++)
     {
         for (j = 0; j < needle_len; j++)
@@ -83,8 +83,8 @@ size_t Str_search(const char haystack[], const char needle[])
         }
         if (j == needle_len)
         {
-            return i; // The index of needle
+            return i; /* The index of needle */
         }
     }
-    return -1; // Needle not found
+    return -1; /* Needle not found */
 }
