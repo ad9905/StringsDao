@@ -56,7 +56,7 @@ int Str_compare(const char str1[], const char str2[])
     /* should return how the strings differ:
     -1 if string 1 is less than string 2
     1 if string 1 is greater than string 2 */
-    while (str1[i] == str2[i])
+    while (str1[i] != '\0' && str2[i] != '\0')
     {
         if (str1[i] > str2[i])
         {
@@ -65,11 +65,6 @@ int Str_compare(const char str1[], const char str2[])
         else if (str1[i] < str2[i])
         {
             return -1;
-        }
-        /* return 0 means strings are equal */
-        else if (str1[i] == '\0')
-        {
-            return 0;
         }
         i++;
     }
