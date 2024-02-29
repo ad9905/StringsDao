@@ -122,20 +122,20 @@ int main()
     printf("strlen() result: %ld\n", strlen(str1));
 
     /* Test my Str_compare() vs library's strcmp() */
-    printf("Str_compare() result: %d\n", Str_compare(str1, str2));
-    printf("strcmp() result: %d\n", strcmp(str1, str2));
+    printf("Str_compare() result: s\n", Str_compare(str1, str2));
+    printf("strcmp() result: %s\n", strcmp(str1, str2));
 
     /* Test my Str_search() vs library's strstr() */
-    printf("Str_search() result: %d\n", Str_search(str1, str2));
-    printf("strstr() result: %d\n", strstr(str1, str2));
+    printf("Str_search() result: %s\n", Str_search(str3, needle));
+    printf("strstr() result: %s\n", strstr(str3, needle));
 
     /* Test my Str_concat vs library's str*/
-    printf("Str_concat() result: %d\n", Str_concat(dest, str2));
-    printf("strcat() result: %d\n", strcat(dest, str2));
+    printf("Str_concat() result: %s\n", Str_concat(dest, str2));
+    printf("strcat() result: %s\n", strcat(dest, str2));
 
     /* Test copy */
-    printf("Str_copy() result: %d\n", Str_copy(str1, str2));
-    printf("strcpy() result: %d\n", strcpy(str1, str2));
+    printf("Str_copy() result: %s\n", Str_copy(str1, str2));
+    printf("strcpy() result: %s\n", strcpy(str1, str2));
 
     return 0;
 }
