@@ -88,7 +88,7 @@ char *Str_search(const char haystack[], const char needle[])
     /* Ensures needle is shorter than haystack */
     if (needle_len > haystack_len)
     {
-        return -1;
+        return NULL;
     }
 
     /* Loops in order to find the needle in the haystack */
@@ -108,7 +108,7 @@ char *Str_search(const char haystack[], const char needle[])
             return (char *)&haystack[i];
         }
     }
-    return -1; /* Needle not found */
+    return NULL; /* Needle not found */
 }
 
 int main()
@@ -129,8 +129,8 @@ int main()
     printf("strcmp() result: %d\n", strcmp(str1, str2));
 
     /* Test my Str_search() vs library's strstr() */
-    printf("Str_search() result: %d\n", Str_search(str3, needle));
-    printf("strstr() result: %d\n", strstr(str3, needle));
+    printf("Str_search() result: %s\n", Str_search(str3, needle));
+    printf("strstr() result: %s\n", strstr(str3, needle));
 
     /* Test my Str_concat vs library's str*/
     printf("Str_concat() result: %s\n", Str_concat(dest, str2));
