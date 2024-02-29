@@ -46,9 +46,9 @@ char *Str_concat(char dest[], const char pcSrc[])
 
 /* should be returning integers that denote if strings are equal,
 less than, or greater than. */
-size_t Str_compare(const char str1[], const char str2[])
+int Str_compare(const char str1[], const char str2[])
 {
-    size_t i = 0;
+    int i = 0;
     assert(str1 != NULL && str2 != NULL);
     /* should return how the strings differ:
     -1 if string 1 is less than string 2
@@ -73,11 +73,14 @@ size_t Str_compare(const char str1[], const char str2[])
     return 0;
 }
 
-size_t Str_search(const char haystack[], const char needle[])
+int Str_search(const char haystack[], const char needle[])
 {
     assert(haystack != NULL && needle != NULL);
 
-    size_t i, j, haystack_len = 0, needle_len = 0;
+    int i;
+    int j;
+    int haystack_len = 0;
+    int needle_len = 0;
 
     haystack_len = Str_getLength(haystack);
     needle_len = Str_getLength(needle);
@@ -122,12 +125,12 @@ int main()
     printf("strlen() result: %ld\n", strlen(str1));
 
     /* Test my Str_compare() vs library's strcmp() */
-    printf("Str_compare() result: %ld\n", Str_compare(str1, str2));
-    printf("strcmp() result: %ld\n", strcmp(str1, str2));
+    printf("Str_compare() result: %d\n", Str_compare(str1, str2));
+    printf("strcmp() result: %d\n", strcmp(str1, str2));
 
     /* Test my Str_search() vs library's strstr() */
-    printf("Str_search() result: %ld\n", Str_search(str3, needle));
-    printf("strstr() result: %ld\n", strstr(str3, needle));
+    printf("Str_search() result: %d\n", Str_search(str3, needle));
+    printf("strstr() result: %d\n", strstr(str3, needle));
 
     /* Test my Str_concat vs library's str*/
     printf("Str_concat() result: %s\n", Str_concat(dest, str2));
