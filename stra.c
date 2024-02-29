@@ -70,6 +70,9 @@ int Str_compare(const char str1[], const char str2[])
         else if (str1[i] == '\0')
         {
             return 0;
+        }
+        else
+        {
             i++;
         }
     }
