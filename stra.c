@@ -23,8 +23,10 @@ char *Str_copy(char pcDest[], const char pcSrc[])
     size_t i = 0;
     assert(pcDest != NULL && pcSrc != NULL);
     while (pcSrc[i] != '\0')
+    {
         pcDest[i] = pcSrc[i];
-    i++;
+        i++;
+    }
     /* \0 because NULL represents a null pointer, and \0 is an empty
     string literal */
     return pcDest;
