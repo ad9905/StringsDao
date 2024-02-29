@@ -118,16 +118,16 @@ int main()
     char dest[50] = "Concatenate ";
 
     /* Test my Str_getLength vs library's strlen() */
-    printf("Str_getLength() result: %d\n", Str_getLength(str1));
-    printf("strlen() result: %d\n", strlen(str1));
+    printf("Str_getLength() result: %ld\n", Str_getLength(str1));
+    printf("strlen() result: %ld\n", strlen(str1));
 
     /* Test my Str_compare() vs library's strcmp() */
-    printf("Str_compare() result: %d\n", Str_compare(str1, str2));
-    printf("strcmp() result: %d\n", strcmp(str1, str2));
+    printf("Str_compare() result: %ld\n", Str_compare(str1, str2));
+    printf("strcmp() result: %ld\n", strcmp(str1, str2));
 
     /* Test my Str_search() vs library's strstr() */
-    printf("Str_search() result: %s\n", Str_search(str3, needle));
-    printf("strstr() result: %s\n", strstr(str3, needle));
+    printf("Str_search() result: %ld\n", Str_search(str3, needle));
+    printf("strstr() result: %ld\n", strstr(str3, needle));
 
     /* Test my Str_concat vs library's str*/
     printf("Str_concat() result: %s\n", Str_concat(dest, str2));
