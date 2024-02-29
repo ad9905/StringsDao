@@ -73,7 +73,7 @@ int Str_compare(const char str1[], const char str2[])
     return 0;
 }
 
-int Str_search(const char haystack[], const char needle[])
+char *Str_search(const char haystack[], const char needle[])
 {
     assert(haystack != NULL && needle != NULL);
 
@@ -105,7 +105,7 @@ int Str_search(const char haystack[], const char needle[])
         {
             /* The index of needle
              (its starting position)*/
-            return i;
+            return (char *)&haystack[i];
         }
     }
     return -1; /* Needle not found */
