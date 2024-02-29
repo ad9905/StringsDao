@@ -27,6 +27,7 @@ char *Str_copy(char pcDest[], const char pcSrc[])
         pcDest[i] = pcSrc[i];
         i++;
     }
+    pcDest[i] = '\0';
     /* \0 because NULL represents a null pointer, and \0 is an empty
     string literal */
     return pcDest;
