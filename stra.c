@@ -7,6 +7,7 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <string.h>
+#include "str.h"
 
 size_t Str_getLength(const char pcSrc[])
 {
