@@ -71,10 +71,7 @@ int Str_compare(const char str1[], const char str2[])
         {
             return 0;
         }
-        else
-        {
-            i++;
-        }
+        i++;
     }
     return 0;
 }
