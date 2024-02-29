@@ -66,12 +66,12 @@ int Str_compare(const char str1[], const char str2[])
         {
             return -1;
         }
-
         /* return 0 means strings are equal */
-
         else if (str1[i] == '\0')
+        {
             return 0;
-        i++;
+            i++;
+        }
     }
     return 0;
 }
