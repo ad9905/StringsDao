@@ -30,6 +30,12 @@ static size_t replaceAndWrite(const char *pcLine,
 
     const char *pos = pcLine;
 
+    if (fromLen == 0)
+    {
+        fputs(pcLine, stdout);
+        return 0;
+    }
+
     while ((pos = Str_search(pos, pcFrom)) != NULL)
     {
         while (pcLine != pos)
