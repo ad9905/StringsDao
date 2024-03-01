@@ -37,12 +37,12 @@ static size_t replaceAndWrite(const char *pcLine,
             putchar(*pcLine);
             pcLine++;
         }
-        fprintf(stdout, pcTo);
+        puts(pcTo);
         pos += fromLen;
         pcLine = pos;
         count++;
     }
-    fprintf(stdout, *pcLine);
+    puts(pcLine);
     return count;
 }
 
