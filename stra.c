@@ -9,6 +9,8 @@
 #include <string.h>
 #include "str.h"
 
+/* Takes in an array, pointer constant source (pcSRC), returns
+its length as a size_t (integer) */
 size_t Str_getLength(const char pcSrc[])
 {
     size_t uLength = 0;
@@ -18,6 +20,9 @@ size_t Str_getLength(const char pcSrc[])
     return uLength;
 }
 
+/* Takes in two arrays, pointer constant destination (pcDest)
+and pointer constant source (pcSrc), returns an array, pcDest
+with the exact same contents as the inputted pcSrc array */
 char *Str_copy(char pcDest[], const char pcSrc[])
 {
     size_t i = 0;
@@ -33,8 +38,13 @@ char *Str_copy(char pcDest[], const char pcSrc[])
     return pcDest;
 }
 
+/* Takes in arrays destination (dest) and pointer constant
+source (pcSrc) returns an array dest containing the contents
+of pcSrc concatenated onto the end of dest */
 char *Str_concat(char dest[], const char pcSrc[])
 {
+    /* unsure if this is allowed, traverses the entire
+    string while perhaps being unnecessary */
     size_t destLength = Str_getLength(dest);
     size_t i = 0;
     assert(dest != NULL && pcSrc != NULL);
@@ -48,8 +58,11 @@ char *Str_concat(char dest[], const char pcSrc[])
     /* Return the destination string */
 }
 
-/* should be returning integers that denote if strings are equal,
-less than, or greater than. */
+/* Compares two arrays, string1 (str1) and string2 (str2) and
+returns one of three integers based on the following conditions:
+0: the array contents are identical
+1: str1 is greater than str2
+-1: str2 is greater than str1 */
 int Str_compare(const char str1[], const char str2[])
 {
     int i = 0;
@@ -80,6 +93,10 @@ int Str_compare(const char str1[], const char str2[])
     return 1;
 }
 
+/* Takes in two arrays haystack and needle. Returns a
+pointer to the beginning of the first occurrence of
+the exact concents of array needle within array haystack.
+Otherwise, returns NULL (needle not found) */
 char *Str_search(const char haystack[], const char needle[])
 {
     int i;
@@ -108,8 +125,6 @@ char *Str_search(const char haystack[], const char needle[])
         }
         if (j == needle_len)
         {
-            /* The index of needle
-             (its starting position)*/
             return (char *)&haystack[i];
         }
     }

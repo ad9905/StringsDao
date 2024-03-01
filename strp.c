@@ -9,6 +9,9 @@
 #include <string.h>
 #include "str.h"
 
+/* Takes in chars from pointer constant source (pcSRC), returns the number of chars between
+two addresses, representing string length */
+
 size_t Str_getLength(const char *pcSrc)
 {
     const char *pcEnd;
@@ -19,6 +22,7 @@ size_t Str_getLength(const char *pcSrc)
     return (size_t)(pcEnd - pcSrc);
 }
 
+/* Takes in chars from pointer constant source (pcSrc) and returns pointer constant destination (pcDest), which points to the beginning of resulting copied string */
 char *Str_copy(char *pcDest, const char *pcSrc)
 {
     char *dest = pcDest;
@@ -33,6 +37,7 @@ char *Str_copy(char *pcDest, const char *pcSrc)
     return dest;
 }
 
+/* Takes in chars from destination (dest) and pointer constant Source (pcSrc), returns result, a pointer to the beginning of the concatenation of dest, and then pcSrc*/
 char *Str_concat(char *dest, const char *pcSrc)
 {
     char *result = dest;
@@ -49,6 +54,10 @@ char *Str_concat(char *dest, const char *pcSrc)
     return result;
 }
 
+/* Takes in chars from string1 (str1), and string2 (str2). Returns one of three integers according to how str1 and str2 relate:
+0: the array contents are identical
+1: str1 is greater than str2
+-1: str2 is greater than str1 */
 int Str_compare(const char *str1, const char *str2)
 {
     assert(str1 != NULL && str2 != NULL);
@@ -69,6 +78,7 @@ int Str_compare(const char *str1, const char *str2)
         return 1;
 }
 
+/* Takes in chars from haystack and needle. If the exact chars from needle are found in haystack, returns pointer to the beginning of the first character in haystack that matches needle. Otherwise, returns NULL */
 char *Str_search(const char *haystack, const char *needle)
 {
     const char *pHaystack;
