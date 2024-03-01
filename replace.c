@@ -20,24 +20,24 @@
 static size_t replaceAndWrite(const char *pcLine,
                               const char *pcFrom, const char *pcTo)
 {
-    assert(pcLine != NULL);
-    assert(pcFrom != NULL);
-    assert(pcTo != NULL);
-
     size_t fromLen = Str_getLength(pcFrom);
     size_t toLen = Str_getLength(pcTo);
     size_t count = 0;
 
+    assert(pcLine != NULL);
+    assert(pcFrom != NULL);
+    assert(pcTo != NULL);
+
     const char *pos = pcLine;
     while ((pos = Str_search(pos, pcFrom)) != NULL)
     {
-        fwrite(pcLine, 1, pos - pcLine, stdout);
-        fputs(pcTo, stdout);
+        printf(1, pos - pcLine, stdout);
+        fprintf(pcTo, stdout);
         pos += fromLen;
         pcLine = pos;
         count++;
     }
-    fputs(pcLine, stdout);
+    fprintf(pcLine, stdout);
 
     return count;
 }
@@ -79,6 +79,7 @@ int main(int argc, char *argv[])
 
     pcFrom = argv[1];
     pcTo = argv[2];
+
     /* Takes in strings argv[1] and argv[2]. Replaces each
     occurance of argv[1] with argv[2], writes these modified
     lines to stdout and writes to stderr with the # of
@@ -87,7 +88,7 @@ int main(int argc, char *argv[])
     {
         if (pcFrom[0] == '\0')
         {
-            fputs(acLine, stdout);
+            fprintf(acLine, stdout);
         }
         else
         {
@@ -95,11 +96,11 @@ int main(int argc, char *argv[])
             char *pos = acLine;
             while ((pos = Str_search(pos, pcFrom)) != NULL)
             {
-                memcpy(pos, pcTo, Str_getLength(pcTo));
+                Str_copy(pos, pcTo, Str_getLength(pcTo));
                 pos += Str_getLength(pcTo);
                 uReplaceCount++;
             }
-            fputs(acLine, stdout);
+            fprintf(acLine, stdout);
         }
     }
     fprintf(stderr, "%lu replacements\n", (unsigned long)uReplaceCount);
