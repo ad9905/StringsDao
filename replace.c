@@ -21,14 +21,12 @@ static size_t replaceAndWrite(const char *pcLine,
                               const char *pcFrom, const char *pcTo)
 {
     size_t fromLen = Str_getLength(pcFrom);
-    size_t toLen = Str_getLength(pcTo);
     size_t count = 0;
+    const char *pos = pcLine;
 
     assert(pcLine != NULL);
     assert(pcFrom != NULL);
     assert(pcTo != NULL);
-
-    const char *pos = pcLine;
 
     if (fromLen == 0)
     {
@@ -77,8 +75,6 @@ int main(int argc, char *argv[])
     };
 
     char acLine[MAX_LINE_SIZE];
-    char *pcFrom;
-    char *pcTo;
     size_t uReplaceCount = 0;
 
     if (argc != PROPER_ARG_COUNT)
@@ -86,9 +82,6 @@ int main(int argc, char *argv[])
         fprintf(stderr, "usage: %s fromstring tostring\n", argv[0]);
         return EXIT_FAILURE;
     }
-
-    pcFrom = argv[1];
-    pcTo = argv[2];
 
     /* Takes in strings argv[1] and argv[2]. Replaces each
     occurance of argv[1] with argv[2], writes these modified
