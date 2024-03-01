@@ -29,16 +29,20 @@ static size_t replaceAndWrite(const char *pcLine,
     assert(pcTo != NULL);
 
     const char *pos = pcLine;
+
     while ((pos = Str_search(pos, pcFrom)) != NULL)
     {
-        printf(1, pos - pcLine, stdout);
-        fprintf(pcTo, stdout);
+        while (pcLine != pos)
+        {
+            putchar(*pcLine);
+            pcLine++;
+        }
+        fprintf(stdout, pcTo);
         pos += fromLen;
         pcLine = pos;
         count++;
     }
-    fprintf(pcLine, stdout);
-
+    fprintf(stdout, *pcLine);
     return count;
 }
 
@@ -86,23 +90,9 @@ int main(int argc, char *argv[])
     replacements made */
     while (fgets(acLine, MAX_LINE_SIZE, stdin) != NULL)
     {
-        if (pcFrom[0] == '\0')
-        {
-            fprintf(acLine, stdout);
-        }
-        else
-        {
-            size_t fromLen = Str_getLength(pcFrom);
-            char *pos = acLine;
-            while ((pos = Str_search(pos, pcFrom)) != NULL)
-            {
-                Str_copy(pos, pcTo, Str_getLength(pcTo));
-                pos += Str_getLength(pcTo);
-                uReplaceCount++;
-            }
-            fprintf(acLine, stdout);
-        }
+        size_t finalCount = replaceAndWrite(acLine, argv[1], argv[2]);
+        uReplaceCount = uReplaceCount + finalCount;
     }
-    fprintf(stderr, "%d replacements\n", uReplaceCount);
+    fprintf(stderr, "%lu replacements\n", (unsigned long)uReplaceCount);
     return 0;
 }
