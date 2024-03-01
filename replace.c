@@ -103,6 +103,6 @@ int main(int argc, char *argv[])
             fprintf(acLine, stdout);
         }
     }
-    fprintf(stderr, "%lu replacements\n", (unsigned long)uReplaceCount);
+    fprintf(stderr, "%d replacements\n", uReplaceCount);
     return 0;
 }
