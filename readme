@@ -57,15 +57,91 @@ disagreements with them? Copy the splint warnings here, and express your
 disagreement after each warning. If there are no warnings, then write
 "None."
 
+stra.c: (in function Str_search)
+stra.c:107:5: Assignment of size_t to int:
+                 haystack_len = Str_getLength(haystack)
+  To allow arbitrary integral types to match any integral type, use
+  +matchanyintegral.
+stra.c:108:5: Assignment of size_t to int: needle_len = Str_getLength(needle)
 
+Finished checking --- 2 code warnings
 
+I figured that size_t and int are the same thing effectively for
+the purposes of this assignment. 
 ------------------------------------------------------------------------
 What warnings does critTer generate on stra.c, and what are your
 disagreements with them? Copy the critTer warnings here, and express
 your disagreement after each warning. If there are no warnings, then
 write "None."
 
+str.h: line 1: high priority: 
+   A file should begin with a comment.
 
+   str.h: line 3: high priority: 
+   A function's comment should refer to each parameter by name;
+   your comment does not refer to 'pcSrc'
+
+   str.h: line 3: high priority: 
+   A function's comment should state explicitly what the function returns
+
+   str.h: line 5: high priority: 
+   A function declaration should have a comment
+
+   str.h: line 6: high priority: 
+   A function declaration should have a comment
+
+   str.h: line 7: high priority: 
+   A function declaration should have a comment
+
+   str.h: line 8: high priority: 
+   A function declaration should have a comment
+
+   str.h: line 10: high priority: 
+   A function's comment should refer to each parameter by name;
+   your comment does not refer to 'pcSrc'
+
+   str.h: line 10: high priority: 
+   A function's comment should state explicitly what the function returns
+
+   str.h: line 12: high priority: 
+   A function declaration should have a comment
+
+   str.h: line 13: high priority: 
+   A function declaration should have a comment
+
+   str.h: line 14: high priority: 
+   A function declaration should have a comment
+
+   str.h: line 15: high priority: 
+   A function declaration should have a comment
+
+   str.h: line 5: high priority: 
+   A comment should appear above each global variable.
+
+   str.h: line 6: high priority: 
+   A comment should appear above each global variable.
+
+   str.h: line 7: high priority: 
+   A comment should appear above each global variable.
+
+   str.h: line 8: high priority: 
+   A comment should appear above each global variable.
+
+   str.h: line 12: high priority: 
+   A comment should appear above each global variable.
+
+   str.h: line 13: high priority: 
+   A comment should appear above each global variable.
+
+   str.h: line 14: high priority: 
+   A comment should appear above each global variable.
+
+   str.h: line 15: high priority: 
+   A comment should appear above each global variable.
+
+I figured that this file was just to declare the functions in 
+stra and strp so they work. I've commented all of the functions'
+inputs and outputs on the respective files.
 
 ------------------------------------------------------------------------
 What warnings does splint generate on strp.c, and what are your
@@ -73,7 +149,7 @@ disagreements with them? Copy the splint warnings here, and express your
 disagreement after each warning. If there are no warnings, then write
 "None."
 
-
+None
 
 ------------------------------------------------------------------------
 What warnings does critTer generate on strp.c, and what are your
@@ -81,7 +157,74 @@ disagreements with them? Copy the critTer warnings here, and express
 your disagreement after each warning. If there are no warnings, then
 write "None."
 
+str.h: line 1: high priority: 
+   A file should begin with a comment.
 
+   str.h: line 3: high priority: 
+   A function's comment should refer to each parameter by name;
+   your comment does not refer to 'pcSrc'
+
+   str.h: line 3: high priority: 
+   A function's comment should state explicitly what the function returns
+
+   str.h: line 5: high priority: 
+   A function declaration should have a comment
+
+   str.h: line 6: high priority: 
+   A function declaration should have a comment
+
+   str.h: line 7: high priority: 
+   A function declaration should have a comment
+
+   str.h: line 8: high priority: 
+   A function declaration should have a comment
+
+   str.h: line 10: high priority: 
+   A function's comment should refer to each parameter by name;
+   your comment does not refer to 'pcSrc'
+
+   str.h: line 10: high priority: 
+   A function's comment should state explicitly what the function returns
+
+   str.h: line 12: high priority: 
+   A function declaration should have a comment
+
+   str.h: line 13: high priority: 
+   A function declaration should have a comment
+
+   str.h: line 14: high priority: 
+   A function declaration should have a comment
+
+   str.h: line 15: high priority: 
+   A function declaration should have a comment
+
+   str.h: line 5: high priority: 
+   A comment should appear above each global variable.
+
+   str.h: line 6: high priority: 
+   A comment should appear above each global variable.
+
+   str.h: line 7: high priority: 
+   A comment should appear above each global variable.
+
+   str.h: line 8: high priority: 
+   A comment should appear above each global variable.
+
+   str.h: line 12: high priority: 
+   A comment should appear above each global variable.
+
+   str.h: line 13: high priority: 
+   A comment should appear above each global variable.
+
+   str.h: line 14: high priority: 
+   A comment should appear above each global variable.
+
+   str.h: line 15: high priority: 
+   A comment should appear above each global variable.
+
+I figured that this file was just to declare the functions in 
+stra and strp so they work. I've commented all of the functions'
+inputs and outputs on the respective files.
 
 ------------------------------------------------------------------------
 What warnings does splint generate on replace.c, and what are your
@@ -89,7 +232,21 @@ disagreements with them? Copy the splint warnings here, and express your
 disagreement after each warning. If there are no warnings, then write
 "None."
 
+str.h:4:8: Function Str_getLength declared but not defined
+  A function or variable is declared, but not defined in any source code file.
+  (Use -declundef to inhibit warning)
+str.h:5:7: Function Str_copy declared but not defined
+str.h:6:7: Function Str_concat declared but not defined
+str.h:7:5: Function Str_compare declared but not defined
+str.h:8:7: Function Str_search declared but not defined
 
+Finished checking --- 5 code warnings
+
+Disagreements:
+I have "##include "str.h"" in my header files, use functions from my
+strp, and replace passes all tests. The only part where it gives me
+trouble is when using splint. Splint gives me no trouble when
+I use it on replace.c AND all the files that it depends on. 
 
 ------------------------------------------------------------------------
 What warnings does critTer generate on replace.c, and what are your
@@ -97,13 +254,88 @@ disagreements with them? Copy the critTer warnings here, and express
 your disagreement after each warning. If there are no warnings, then
 write "None."
 
+str.h: line 1: high priority: 
+   A file should begin with a comment.
 
+   str.h: line 3: high priority: 
+   A function's comment should refer to each parameter by name;
+   your comment does not refer to 'pcSrc'
+
+   str.h: line 3: high priority: 
+   A function's comment should state explicitly what the function returns
+
+   str.h: line 5: high priority: 
+   A function declaration should have a comment
+
+   str.h: line 6: high priority: 
+   A function declaration should have a comment
+
+   str.h: line 7: high priority: 
+   A function declaration should have a comment
+
+   str.h: line 8: high priority: 
+   A function declaration should have a comment
+
+   str.h: line 10: high priority: 
+   A function's comment should refer to each parameter by name;
+   your comment does not refer to 'pcSrc'
+
+   str.h: line 10: high priority: 
+   A function's comment should state explicitly what the function returns
+
+   str.h: line 12: high priority: 
+   A function declaration should have a comment
+
+   str.h: line 13: high priority: 
+   A function declaration should have a comment
+
+   str.h: line 14: high priority: 
+   A function declaration should have a comment
+
+   str.h: line 15: high priority: 
+   A function declaration should have a comment
+
+   str.h: line 5: high priority: 
+   A comment should appear above each global variable.
+
+   str.h: line 6: high priority: 
+   A comment should appear above each global variable.
+
+   str.h: line 7: high priority: 
+   A comment should appear above each global variable.
+
+   str.h: line 8: high priority: 
+   A comment should appear above each global variable.
+
+   str.h: line 12: high priority: 
+   A comment should appear above each global variable.
+
+   str.h: line 13: high priority: 
+   A comment should appear above each global variable.
+
+   str.h: line 14: high priority: 
+   A comment should appear above each global variable.
+
+   str.h: line 15: high priority: 
+   A comment should appear above each global variable.
+
+I figured that this file was just to declare the functions in 
+stra and strp so they work. I've commented all of the functions'
+inputs and outputs on the respective files.
 
 ------------------------------------------------------------------------
 Is it possible for Str_copy or Str_concat to call assert to verify
 that the destination memory area specified by the caller is large
 enough? Explain.
 
+Yes,  Str_copy and Str_concat are able to calculate the size of the 
+destination string based on the length of the source string AND
+factor in characters already in the destination string.
+
+Before copying or concatenating the strings, I can call an assertion
+to ensure that the destination array has enough capacity to 
+concatenate/copy from the source array, and stop the function before 
+an overflow occurs.
 
 
 ------------------------------------------------------------------------
