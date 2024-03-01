@@ -79,10 +79,29 @@ int main(int argc, char *argv[])
 
     pcFrom = argv[1];
     pcTo = argv[2];
-
+    /* Takes in strings argv[1] and argv[2]. Replaces each
+    occurance of argv[1] with argv[2], writes these modified
+    lines to stdout and writes to stderr with the # of
+    replacements made */
     while (fgets(acLine, MAX_LINE_SIZE, stdin) != NULL)
-        /* Insert your code here. */
-
-        fprintf(stderr, "%lu replacements\n", (unsigned long)uReplaceCount);
+    {
+        if (pcFrom[0] == '\0')
+        {
+            fputs(acLine, stdout);
+        }
+        else
+        {
+            size_t fromLen = Str_getLength(pcFrom);
+            char *pos = acLine;
+            while ((pos = Str_search(pos, pcFrom)) != NULL)
+            {
+                memcpy(pos, pcTo, Str_getLength(pcTo));
+                pos += Str_getLength(pcTo);
+                uReplaceCount++;
+            }
+            fputs(acLine, stdout);
+        }
+    }
+    fprintf(stderr, "%lu replacements\n", (unsigned long)uReplaceCount);
     return 0;
 }
